@@ -277,9 +277,12 @@ local library = {
 		updateevent.Event:Connect(function(theme)
 			window.Frame.BackgroundColor3 = theme.backgroundcolor
 		end)
+		function window:Hide()
+		    window.Frame.Visible = not window.Frame.Visible
+		end
 		uis.InputBegan:Connect(function(key)
 			if key.KeyCode == window.hidebutton then
-				window.Frame.Visible = not window.Frame.Visible
+				window:Hide()
 			end
 		end)
 		local function checkIfGuiInFront(Pos)
